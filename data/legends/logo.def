@@ -1,0 +1,51 @@
+[Info]
+localcoord = 960,720
+
+[SceneDef]
+spr = logo.sff
+
+;------------------------------------
+[Scene 0]
+; Fade
+fadein.time = 60
+fadeout.time = 60
+; Screen color
+clearcolor = 255,255,255
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0 ;Default position for all layers
+layer0.anim =  0       ;Anim action number
+; Total time
+end.time = 300
+
+[Scene 1]
+; Fade
+fadein.time = 60
+fadeout.time = 60
+; Screen color
+clearcolor = 255,255,255
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0 ;Default position for all layers
+layer0.anim =  1       ;Anim action number
+; Total time
+end.time = 180
+
+[Scene 2]
+; Fade
+fadein.time = 60
+fadeout.time = 60
+; Screen color
+clearcolor = 255,255,255
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0 ;Default position for all layers
+layer0.anim =  2       ;Anim action number
+; Total time
+end.time = 360
+
+;------------------------------------
+;Animation for logo
+[Begin Action 0]
+0,0, 0,0, -1
+[Begin Action 1]
+0,1, 0,0, -1
+[Begin Action 2]
+0,2, 0,0, -1

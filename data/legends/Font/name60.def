@@ -1,0 +1,10 @@
+[FNT v2]
+fntversion = 2,00
+name = "name60"
+
+[Def]
+Type = bitmap
+Size = 30,75
+Spacing = -8,1
+Offset = 0,0
+File = name60.sff
