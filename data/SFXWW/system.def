@@ -170,10 +170,14 @@ type = normal
 spriteno = 1,0
 tile = 1,0
 
-[TitleBG StaticGradient]
-type = normal
-spriteno = 1,1
-trans = addalpha
+; [TitleBG Balls Mask]
+; type = normal
+; spriteno = 20,3
+; trans = addalpha
+
+; [TitleBG Balls]
+; type = anim
+; actionno = 22
 
 [TitleBG Image Mask]
 type = anim
@@ -187,6 +191,11 @@ trans = addalpha
 
 ;----------------------------
 ;Title Background
+
+[TitleBG Logo]
+type = normal
+spriteno = 0,3
+trans = addalpha
 
 [TitleBG Logo]
 type = normal
@@ -342,11 +351,6 @@ type = normal
 spriteno = 1,1
 trans = addalpha
 
-[SelectBG Image]
-type = anim
-actionno = 30
-trans = addalpha
-
 ;----------------------------
 ;Scrollers
 
@@ -358,26 +362,11 @@ start = 100,0
 velocity = 3.5,0
 trans = addalpha
 
-[SelectBG SmallShadow]
-type = normal
-spriteno = 3,4
-tile = 1,0
-start = -100,0
-velocity = -2.5,0
-trans = addalpha
-
 [SelectBG BigScroller]
 type = normal
 spriteno = 3,1
 tile = 1,0
 velocity = 3,0
-trans = addalpha
-
-[SelectBG SmallScroller]
-type = normal
-spriteno = 3,2
-tile = 1,0
-velocity = -2,0
 trans = addalpha
 
 ;----------------------------
@@ -442,11 +431,6 @@ trans = addalpha
 [VersusBG Logo]
 type = normal
 spriteno = 0,1
-trans = addalpha
-
-[VersusBG Image]
-type = anim
-actionno = 40
 trans = addalpha
 
 ;----------------------------
@@ -568,11 +552,6 @@ tile = 1,0
 [VictoryBG StaticGradient]
 type = normal
 spriteno = 1,1
-trans = addalpha
-
-[VictoryBG Image]
-type = anim
-actionno = 50
 trans = addalpha
 
 ;----------------------------
@@ -704,11 +683,6 @@ type = normal
 spriteno = 1,1
 trans = addalpha
 
-[OptionBG Image]
-type = anim
-actionno = 60
-trans = addalpha
-
 ;Title Background Flicker
 [Begin Action 20]
 20,0, 0,0, 1
@@ -717,33 +691,9 @@ trans = addalpha
 [Begin Action 21]
 20,1, 0,0, 1, , S
 
-;Select Background Flicker
-[Begin Action 30]
-30,0, 0,0, 1
-30,1, 0,0, 1
-30,2, 0,0, 1
-30,1, 0,0, 1
-
-;Versus Background Flicker
-[Begin Action 40]
-40,0, 0,0, 1
-40,1, 0,0, 1
-40,2, 0,0, 1
-40,1, 0,0, 1
-
-;Victory Background Flicker
-[Begin Action 50]
-50,0, 0,0, 1
-50,1, 0,0, 1
-50,2, 0,0, 1
-50,1, 0,0, 1
-
-;Option Background Flicker
-[Begin Action 60]
-60,0, 0,0, 1
-60,1, 0,0, 1
-60,2, 0,0, 1
-60,1, 0,0, 1
+; Title Background Balls
+[Begin Action 22]
+20,2, 0,0, 1, , A1
 
 ;P1 Cursor
 [Begin Action 80]
