@@ -170,6 +170,11 @@ type = normal
 spriteno = 1,0
 tile = 1,0
 
+[TitleBG StaticGradient]
+type = normal
+spriteno = 1,1
+trans = addalpha
+
 [TitleBG Balls Mask]
 type = normal
 spriteno = 20,3
@@ -693,7 +698,16 @@ trans = addalpha
 
 ; Title Background Balls
 [Begin Action 22]
-20,2, 0,0, 1, , A1
+20,2, 0,0, 8
+20,4, 0,0, 8
+20,5, 0,0, 8
+20,6, 0,0, 8
+20,7, 0,0, 8
+20,7, 0,0, 8
+20,6, 0,0, 8
+20,5, 0,0, 8
+20,4, 0,0, 8
+20,2, 0,0, 8
 
 ;P1 Cursor
 [Begin Action 80]
