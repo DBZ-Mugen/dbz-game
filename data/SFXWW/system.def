@@ -170,14 +170,14 @@ type = normal
 spriteno = 1,0
 tile = 1,0
 
-; [TitleBG Balls Mask]
-; type = normal
-; spriteno = 20,3
-; trans = addalpha
+[TitleBG Balls Mask]
+type = normal
+spriteno = 20,3
+trans = addalpha
 
-; [TitleBG Balls]
-; type = anim
-; actionno = 22
+[TitleBG Balls]
+type = anim
+actionno = 22
 
 [TitleBG Image Mask]
 type = anim
