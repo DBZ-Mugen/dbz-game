@@ -175,9 +175,9 @@ type = normal
 spriteno = 1,1
 trans = addalpha
 
-[TitleBG Balls Mask]
+[TitleBG Balls Mask 2]
 type = normal
-spriteno = 20,3
+spriteno = 20,8
 trans = addalpha
 
 [TitleBG Balls]
