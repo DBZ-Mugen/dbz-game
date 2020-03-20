@@ -17,7 +17,7 @@ Initializing graphics...gameCoord 1280x720...render mode 2_20...trying 1280x720x
 Setting callbacks...OK
 Initializing font...OK
 Initializing game variables...OK
-Session RNG seed is 1584690404
+Session RNG seed is 1584692338
 Loading system fonts...OK
 Loading options...
 Initializing pads...failed
@@ -282,9 +282,9 @@ End of mode select loop
 Game loop deinit
 Returned from gameflow loop
 Deinitializing...
-Frames      : 304
-Time elapsed: 5.120 sec
-ticks: 512, tps: 100, start 270, end 782
+Frames      : 1691
+Time elapsed: 28.280 sec
+ticks: 2828, tps: 100, start 274, end 3102
 
 Unloading match assets
 Freeing players

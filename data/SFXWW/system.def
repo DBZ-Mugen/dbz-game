@@ -271,20 +271,20 @@ title.offset = 640,38     ;Position of title (Arcade Mode, etc)
 title.font = -1        ;Font of title (-1 for none)
 ;Big portraits
 p1.face.spr = 9000,1      ;Do not change from 9000,1
-p1.face.offset = 0,234      ;Position to put big portrait
-p1.face.scale = .333,.333
+p1.face.offset = -210,234      ;Position to put big portrait
+p1.face.scale = .25,.25
 p1.face.facing = 1
-p1.face.window = 0,234, 480,585
+p1.face.window = 0,234, 800,585
 p2.face.spr = 9000,1
-p2.face.offset = 1280,234
-p2.face.scale = .333,.333
+p2.face.offset = 1490,234
+p2.face.scale = .25,.25
 p2.face.facing = -1
-p2.face.window = 800,234, 1280,585
+p2.face.window = 480,234, 1280,585
 ;Name
-p1.name.offset = 96,593   ;Position to put name
+p1.name.offset = 96,575   ;Position to put name
 p1.name.font = 3,0,1      ;Set to -1 for no display
 p1.name.spacing = 684,1025   ;Space between each name for players on the same team
-p2.name.offset = 1184,593
+p2.name.offset = 1184,575
 p2.name.font = 3,0,-1
 p2.name.spacing = -15,1025
 ;Stage select
