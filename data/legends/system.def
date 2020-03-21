@@ -317,7 +317,7 @@ p1.teammenu.value.empty.icon.offset = 45,-16
 p1.teammenu.value.empty.icon.spr = 7,0
 p1.teammenu.value.spacing = 30,0
 ;p2 team
-p2.teammenu.pos = 900, 330
+p2.teammenu.pos = 1220, 330
 ;p2.teammenu.bg.spr =
 p2.teammenu.selftitle.font = 4,0, -1
 p2.teammenu.selftitle.text = "TEAM MODE SELECT"
@@ -630,7 +630,7 @@ trans = addalpha
 ;This is the screen that is shown when you win in arcade mode.
 ;It will not be displayed if the winning character has an ending.
 [Win Screen]
-enabled = 1               ;Set to 1 to show win screen, 0 to disable
+enabled = 0               ;Set to 1 to show win screen, 0 to disable
 wintext.text = "Congratulations!"
 wintext.font = 3,0,0
 wintext.offset = 640,240
