@@ -147,7 +147,7 @@ menu.itemname.options = "7"
 menu.itemname.exit = "8"
 ; These parameters define the window in which the items are visible
 ; in.
-menu.window.margins.y = 960,720
+menu.window.margins.y = 1280,720
 menu.window.visibleitems = 1
 menu.boxcursor.visible = 0     ;Set to 0 to disable default cursor display
 menu.boxcursor.coords = -298,-35,298,6
