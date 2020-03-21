@@ -167,10 +167,15 @@ p2.pos = 1237,35
 p2.name.font = 4,0,-1
 
 [Time]
+bg.anim = 50,0
 pos = 640,25
 counter.offset = 0,0
 counter.font = 1,0,0
 framespercount = 90
+
+; Timer background
+[Begin Action 50]
+50,0, 0,30, 1, , , 0.6,0.6
 
 [Combo]
 team1.pos = 40,140
