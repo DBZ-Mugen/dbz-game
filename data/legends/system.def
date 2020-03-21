@@ -250,13 +250,13 @@ cell.random.spr = -1   ;Icon for random select (don't use animation)
 cell.random.switchtime = 4;Time to wait before changing to another random portrait
 p1.cursor.startcell = 0,0
 p1.cursor.active.anim = 80
-p1.cursor.done.spr = 6,0
+p1.cursor.done.spr = 80,0
 p1.cursor.move.snd = 100,1
 p1.cursor.done.snd = 100,2
 p1.random.move.snd = 100,1
 p2.cursor.startcell = 0,0
 p2.cursor.active.anim = 81
-p2.cursor.done.spr = 6,0
+p2.cursor.done.spr = 81,0
 p2.cursor.blink = 0       ;1 to blink p2's cursor if overlapping p1's
 p2.cursor.move.snd = 100,1
 p2.cursor.done.snd = 100,2
@@ -722,26 +722,9 @@ trans = addalpha
 
 ;P1 Cursor
 [Begin Action 80]
-80,0, 0,0, 4
-80,1, 0,0, 4
-80,2, 0,0, 4
-80,3, 0,0, 4
-80,4, 0,0, 4
-80,5, 0,0, 4
-80,4, 0,0, 4
-80,3, 0,0, 4
-80,2, 0,0, 4
-80,1, 0,0, 4
+80,0, 0,0, 4, , A1
 
 ;P2 Cursor
 [Begin Action 81]
-81,0, 0,0, 4
-81,1, 0,0, 4
-81,2, 0,0, 4
-81,3, 0,0, 4
-81,4, 0,0, 4
-81,5, 0,0, 4
-81,4, 0,0, 4
-81,3, 0,0, 4
-81,2, 0,0, 4
-81,1, 0,0, 4
+81,0, 0,0, 4, , A1
+
