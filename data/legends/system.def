@@ -452,23 +452,42 @@ start = 0, -75
 scalestart = 1, 4
 trans = sub
 
-[VersusBG Logo]
-type = normal
-spriteno = 0,0
-start = 0, 115
-scalestart = .25, .25
-trans = addalpha
+;[VersusBG Logo]
+;type = normal
+;spriteno = 0,0
+;start = 0, 115
+;scalestart = .25, .25
+;trans = addalpha
 
 [VersusBG VS]
 type = normal
 spriteno = 4,3
-start = 0, 0
+layerno = 1
+start = 0, 360
 trans = addalpha
 
 ;----------------------------
 ;Scrollers
 
-[VersusBG BigShadow]
+[VersusBG BigShadow Top]
+type = normal
+spriteno = 4,2
+layerno = 1
+tile = 1,0
+start = 100,-450
+velocity = 3.5,0
+trans = addalpha
+
+[VersusBG BigScroller Top]
+type = normal
+spriteno = 4,0
+layerno = 1
+start = 0,-450
+tile = 1,0
+velocity = 4,0
+trans = addalpha
+
+[VersusBG BigShadow Bottom]
 type = normal
 spriteno = 4,2
 layerno = 1
@@ -477,7 +496,7 @@ start = 100,0
 velocity = 3.5,0
 trans = addalpha
 
-[VersusBG BigScroller]
+[VersusBG BigScroller Bottom]
 type = normal
 spriteno = 4,0
 layerno = 1
@@ -539,15 +558,15 @@ time = 300                ;Time to show screen
 fadein.time = 8
 fadeout.time = 15
 ;Winner's portrait and name
-p1.offset = 132,0
-p1.spr = 9000,2
+p1.offset = 160,234
+p1.spr = 9000,1
 p1.facing = 1
-p1.scale = .34,.34
-p1.window = 0,0, 828,549
-p1.name.offset = 40,570
+p1.scale = .25,.25
+p1.window = 0,234, 1280,585
+p1.name.offset = 110,650
 p1.name.font = -1
 ;Win quote text
-winquote.text = "I will prove I am the ultimate Street Fighter!" ;Default win quote text to show
+winquote.text = "" ;Default win quote text to show
 winquote.offset = 10,608
 winquote.font = 4,0,1, 255,255,255
 winquote.window = 10,585, 530,668
@@ -561,6 +580,13 @@ winquote.textwrap = w     ;Word wrap
 type = normal
 spriteno = 1,0
 tile = 1,0
+
+[VictoryBG Shadow Background]
+type = normal
+spriteno = 0,3
+start = 0, -75
+scalestart = 1, 4
+trans = add
 
 [VictoryBG StaticGradient]
 type = normal
@@ -578,15 +604,6 @@ start = 100,0
 velocity = 3.5,0
 trans = addalpha
 
-[VictoryBG SmallShadow]
-type = normal
-spriteno = 5,5
-layerno = 1
-tile = 1,0
-start = -100,0
-velocity = -2.5,0
-trans = addalpha
-
 [VictoryBG BigScroller]
 type = normal
 spriteno = 5,2
@@ -595,31 +612,17 @@ tile = 1,0
 velocity = 4,0
 trans = addalpha
 
-[VictoryBG SmallScroller]
-type = normal
-spriteno = 5,3
-layerno = 1
-tile = 1,0
-velocity = -2,0
-trans = addalpha
-
 ;----------------------------
 ;Title Background
 
-[VictoryBG QuoteArea]
-type = normal
-spriteno = 5,0
-trans = addalpha
+;[VictoryBG QuoteArea]
+;type = normal
+;spriteno = 5,0
+;trans = addalpha
 
-[VictoryBG PortBorder]
+[VictoryBG PortBG]
 type = normal
-spriteno = 5,1
-trans = addalpha
-
-[VictoryBG Logo]
-type = normal
-spriteno = 0,0
-layerno = 1
+spriteno = 3,5
 trans = addalpha
 
 ;-------------------------------------------------------------------
@@ -673,8 +676,8 @@ roundstowin = 5           ;Number of rounds to get win pose (lose pose otherwise
 [Option Info]
 fadein.time = 10
 fadeout.time = 10
-title.offset = 480,65
-title.font = 3,0,0
+title.offset = 480,85
+title.font = 0,0,0
 cursor.move.snd = 100,1
 cursor.done.snd = 100,2
 cancel.snd = 100,3
