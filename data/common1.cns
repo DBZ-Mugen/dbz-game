@@ -2475,3 +2475,713 @@ value = 190
 type = ChangeState
 trigger1 = 1
 value = 0
+
+;===============================================================================
+; GAME EXTRAS
+;===============================================================================
+
+;---------------------------------------------------------------------------
+; Dash Fwd
+[Statedef 1000]
+type    = A
+physics = A
+anim = 100
+sprpriority = 1
+
+[State 0, MakeDust]
+type = MakeDust
+trigger1 = pos y > -40
+pos = 0,-floor(pos y)
+spacing = 3
+
+[State 0, AfterImage] ; blanco
+type = AfterImage
+trigger1 = Time = 0
+time = -1
+length = 20
+palcolor = 256
+palbright = 10,10,10
+palcontrast = 0,0,0
+;palpostbright = 0,0,0
+paladd = 25,25,25
+;palmul = .65,.65,.75
+timegap = 1
+framegap = 1
+trans = add
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = 100,0
+
+[State 100, 1]
+type = VelSet
+trigger1 = 1
+x = const(velocity.run.fwd.x)
+y = -const(movement.yaccel)
+
+[State 100, 2] ;Prevent run from canceling into walk
+type = AssertSpecial
+trigger1 = 1
+flag = NoWalk
+
+[State 100, 3] ;Prevent from turning
+type = AssertSpecial
+trigger1 = 1
+flag = NoAutoTurn
+
+[State 100, 4]
+type = ChangeState
+trigger1 = command != "holdfwd"
+value = 1004
+
+;---------------------------------------------------------------------------
+; Dash Back
+[Statedef 1001]
+type    = A
+physics = A
+anim = 105
+sprpriority = 1
+
+[State 0, MakeDust]
+type = MakeDust
+trigger1 = pos y > -40
+pos = 0,-floor(pos y)
+spacing = 3
+
+[State 0, AfterImage] ; blanco
+type = AfterImage
+trigger1 = Time = 0
+time = -1
+length = 20
+palcolor = 256
+palbright = 10,10,10
+palcontrast = 0,0,0
+;palpostbright = 0,0,0
+paladd = 25,25,25
+;palmul = .65,.65,.75
+timegap = 1
+framegap = 1
+trans = add
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = 100,0
+
+[State 100, 1]
+type = VelSet
+trigger1 = 1
+x = const(velocity.run.back.x)
+y = -const(movement.yaccel)
+
+[State 100, 2]
+type = AssertSpecial
+trigger1 = 1
+flag = NoWalk
+
+[State 100, 3] ;Prevent from turning
+type = AssertSpecial
+trigger1 = 1
+flag = NoAutoTurn
+
+[State 100, 4]
+type = ChangeState
+trigger1 = command != "holdback"
+value = 1004
+
+;---------------------------------------------------------------------------
+; Dash Up
+[Statedef 1002]
+type    = A
+physics = A
+anim = 1002
+sprpriority = 1
+
+[State 0, MakeDust]
+type = MakeDust
+trigger1 = pos y > -40
+pos = 0,-floor(pos y)
+spacing = 3
+
+[State 0, AfterImage] ; blanco
+type = AfterImage
+trigger1 = Time = 0
+time = -1
+length = 20
+palcolor = 256
+palbright = 10,10,10
+palcontrast = 0,0,0
+;palpostbright = 0,0,0
+paladd = 25,25,25
+;palmul = .65,.65,.75
+timegap = 1
+framegap = 1
+trans = add
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = 100,0
+
+[State 100, 1]
+type = VelSet
+trigger1 = 1
+y = -6
+
+[State 100, 2]
+type = AssertSpecial
+trigger1 = 1
+flag = NoWalk
+
+[State 100, 3] ;Prevent from turning
+type = AssertSpecial
+trigger1 = 1
+flag = NoAutoTurn
+
+[State 100, 4]
+type = ChangeState
+trigger1 = Time = 10
+value = 1004
+
+;---------------------------------------------------------------------------
+; Dash Down
+[Statedef 1003]
+type    = A
+physics = A
+anim = 1003
+sprpriority = 1
+
+[State 0, MakeDust]
+type = MakeDust
+trigger1 = pos y > -40
+pos = 0,-floor(pos y)
+spacing = 3
+
+[State 0, AfterImage] ; blanco
+type = AfterImage
+trigger1 = Time = 0
+time = -1
+length = 20
+palcolor = 256
+palbright = 10,10,10
+palcontrast = 0,0,0
+;palpostbright = 0,0,0
+paladd = 25,25,25
+;palmul = .65,.65,.75
+timegap = 1
+framegap = 1
+trans = add
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = 100,0
+
+[State 100, 1]
+type = VelSet
+trigger1 = 1
+y = 8
+
+[State 100, 2]
+type = AssertSpecial
+trigger1 = 1
+flag = NoWalk
+
+[State 100, 3] ;Prevent from turning
+type = AssertSpecial
+trigger1 = 1
+flag = NoAutoTurn
+
+[State 100, 4]
+type = ChangeState
+trigger1 = Time = 10
+value = 1004
+
+;---------------------------------------------------------------------------
+; Dash Stop
+[Statedef 1004]
+type    = A
+physics = A
+anim = 101
+sprpriority = 1
+
+[State 0, ChangeAnim] ; anim on prev dash back
+type = ChangeAnim
+trigger1 = prevstateno = 1001 && !time
+value = 106
+elem = 1
+
+[State 0, ChangeAnim] ; anim on prev dash up
+type = ChangeAnim
+trigger1 = prevstateno = 1002 && !time
+value = 1003
+elem = 1
+
+[State 0, ChangeAnim] ; anim on prev dash up
+type = ChangeAnim
+trigger1 = prevstateno = 1003 && !time
+value = 1003
+elem = 1
+
+;---------------------------------------------------------------------------
+; Go To Fly
+[Statedef 1005]
+type    = A
+physics = N
+anim = 1005
+velset = 0,0
+sprpriority = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = Time = 0 && pos y = 0
+anim = 7001
+ID = 7001
+pos = -10,1
+bindtime = 1
+sprpriority = -1
+scale = .8,.8
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = Time = 0 && pos y = 0
+anim = 7001
+ID = 7001
+pos = 10,1
+bindtime = 1
+facing = -1
+sprpriority = -1
+scale = .8,.8
+ownpal = 1
+
+[State 0, MakeDust]
+type = MakeDust
+trigger1 = pos y > -20
+pos = 0,-floor(pos y)
+spacing = 3
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = pos y < 0
+physics = A
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = 51,0
+channel = 1
+
+[State 0, VelAdd] ; go up
+type = VelAdd
+triggerall = prevstateno != [1000,1004]
+trigger1 = AnimElemtime(2) >= 0
+y = -1
+
+[State 0, VelAdd] ; prev dash fwd
+type = Velset
+trigger1 = prevstateno = 1000
+x = 5
+y = 0
+
+[State 0, VelAdd] ; prev dash back
+type = Velset
+trigger1 = prevstateno = 1001
+x = -5
+y = 0
+
+[State 0, VelAdd] ; prev dash up
+type = Velset
+trigger1 = prevstateno = 1002
+y = -.3
+
+[State 0, VelAdd] ; prev dash down
+type = Velset
+trigger1 = prevstateno = 1003
+y = -.3
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = prevstateno = [1000,1004]
+value = 42
+elem = 3
+persistent = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1006
+ctrl = 0
+
+;---------------------------------------------------------------------------
+; Fly
+[Statedef 1006]
+type    = A
+physics = N
+anim = 1006
+velset = 0,0
+sprpriority = 1
+
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = !time
+value = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = Time = 0 && var(3) != 1
+v = 3
+value = 1
+
+[State 0, VarSet] ; reset
+type = VarSet
+trigger1 = !time
+v = 2
+value = 0
+
+;-movimento cima-baixo-
+[State 1500,fuwavar(1)]
+type = VarSet
+trigger1 = (command != "holdfwd" && command != "holdback" && command != "holdup" && command != "holddown") && var(2) != 2
+trigger2 = (var(2) = 2) && Vel Y >= 1
+v = 2
+value = 1
+
+[State 1500,fuwavar(2)]
+type = VarSet
+triggerall = var(2) = 1
+trigger1 = Vel Y <= -1
+trigger2 = (P2BodyDist Y > 200)&&(Vel Y < 0)
+v = 2
+value = 2
+
+[State 1500,fuwaUp]
+type = VelAdd
+trigger1 = var(2) = 1
+y = -0.05
+
+[State 1500,fuwaDown]
+type = VelAdd
+trigger1 = var(2) = 2
+y = 0.05
+;----------------------------
+
+[State 0, AfterImage] ; blanco
+type = AfterImage
+trigger1 = Time = 0
+time = -1
+length = 20
+palcolor = 256
+palbright = 10,10,10
+palcontrast = 0,0,0
+;palpostbright = 0,0,0
+paladd = 25,25,25
+;palmul = .65,.65,.75
+timegap = 1
+framegap = 1
+trans = add
+
+[State 0, Turn]
+type = Turn
+trigger1 = p2bodydist x < -10
+persistent = 0
+
+[State 0, ChangeState] ; fly stop
+type = ChangeState
+triggerall = Time > 0
+trigger1 = command = "z"
+trigger2 = win || lose || drawgame
+value = 1003
+ctrl = 0
+
+;---------------------------------------------------------------------------
+; Fly Fwd
+[Statedef 1007]
+type    = A
+physics = A
+anim = 100
+velset = 0,0
+sprpriority = 1
+
+[State 0, MakeDust]
+type = MakeDust
+trigger1 = pos y > -40
+pos = 0,-floor(pos y)
+spacing = 3
+
+[State 0, AfterImage] ; blanco
+type = AfterImage
+trigger1 = Time = 0
+time = -1
+length = 20
+palcolor = 256
+palbright = 10,10,10
+palcontrast = 0,0,0
+;palpostbright = 0,0,0
+paladd = 25,25,25
+;palmul = .65,.65,.75
+timegap = 1
+framegap = 1
+trans = add
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = prevstateno = 1006
+trigger1 = Time = 0
+value = 100,0
+
+[State 100, 1]
+type = VelSet
+trigger1 = command = "holdup" && pos y > -200
+y = -const(movement.yaccel)*7
+
+[State 100, 1]
+type = VelSet
+trigger1 = command = "holddown"
+y = const(movement.yaccel)*7
+
+[State 100, 1]
+type = VelSet
+trigger1 = command != "holdup" && command != "holddown" && pos y > -200
+y = -const(movement.yaccel)
+
+[State 100, 1]
+type = VelSet
+trigger1 = pos y <= -200 && command != "holddown"
+y = 0
+
+[State 100, 1]
+type = VelSet
+trigger1 = 1
+x = const(velocity.run.fwd.x)
+
+[State 100, 2] ;Prevent run from canceling into walk
+type = AssertSpecial
+trigger1 = 1
+flag = NoWalk
+
+[State 100, 3] ;Prevent from turning
+type = AssertSpecial
+trigger1 = 1
+flag = NoAutoTurn
+
+[State 100, 4]
+type = ChangeState
+trigger1 = command != "holdfwd"
+value = 1006
+
+;---------------------------------------------------------------------------
+; Fly Back
+[Statedef 1008]
+type    = A
+physics = A
+anim = 105
+velset = 0,0
+sprpriority = 1
+
+[State 0, MakeDust]
+type = MakeDust
+trigger1 = pos y > -40
+pos = 0,-floor(pos y)
+spacing = 3
+
+[State 0, AfterImage] ; blanco
+type = AfterImage
+trigger1 = Time = 0
+time = -1
+length = 20
+palcolor = 256
+palbright = 10,10,10
+palcontrast = 0,0,0
+;palpostbright = 0,0,0
+paladd = 25,25,25
+;palmul = .65,.65,.75
+timegap = 1
+framegap = 1
+trans = add
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = prevstateno = 1006
+trigger1 = Time = 0
+value = 100,0
+
+[State 100, 1]
+type = VelSet
+trigger1 = command = "holdup" && pos y > -200
+y = -const(movement.yaccel)*7
+
+[State 100, 1]
+type = VelSet
+trigger1 = command = "holddown"
+y = const(movement.yaccel)*7
+
+[State 100, 1]
+type = VelSet
+trigger1 = command != "holdup" && command != "holddown" && pos y > -200
+y = const(movement.yaccel)
+
+[State 100, 1]
+type = VelSet
+trigger1 = 1
+x = const(velocity.run.back.x)
+
+[State 100, 2]
+type = AssertSpecial
+trigger1 = 1
+flag = NoWalk
+
+[State 100, 3] ;Prevent from turning
+type = AssertSpecial
+trigger1 = 1
+flag = NoAutoTurn
+
+[State 100, 4]
+type = ChangeState
+trigger1 = command != "holdback"
+value = 1006
+
+;---------------------------------------------------------------------------
+; Fly Up
+[Statedef 1009]
+type    = A
+physics = A
+anim = 1002
+velset = 0,0
+sprpriority = 1
+
+[State 0, MakeDust]
+type = MakeDust
+trigger1 = pos y > -40
+pos = 0,-floor(pos y)
+spacing = 3
+
+[State 0, AfterImage] ; blanco
+type = AfterImage
+trigger1 = Time = 0
+time = -1
+length = 20
+palcolor = 256
+palbright = 10,10,10
+palcontrast = 0,0,0
+;palpostbright = 0,0,0
+paladd = 25,25,25
+;palmul = .65,.65,.75
+timegap = 1
+framegap = 1
+trans = add
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = prevstateno = 1006
+trigger1 = Time = 0
+value = 100,0
+
+[State 100, 1]
+type = VelSet
+trigger1 = pos y > -200
+y = -6
+
+[State 100, 2]
+type = AssertSpecial
+trigger1 = 1
+flag = NoWalk
+
+[State 100, 3] ;Prevent from turning
+type = AssertSpecial
+trigger1 = 1
+flag = NoAutoTurn
+
+[State 100, 4]
+type = ChangeState
+trigger1 = command != "holdup"
+value = 1006
+
+;---------------------------------------------------------------------------
+; Fly Down
+[Statedef 1010]
+type    = A
+physics = N
+anim = 1003
+velset = 0,0
+sprpriority = 1
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = pos y < -10
+physics = N
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = pos y >= -10
+physics = A
+
+[State 0, MakeDust]
+type = MakeDust
+trigger1 = pos y > -40
+pos = 0,-floor(pos y)
+spacing = 3
+
+[State 0, AfterImage] ; blanco
+type = AfterImage
+trigger1 = Time = 0
+time = -1
+length = 20
+palcolor = 256
+palbright = 10,10,10
+palcontrast = 0,0,0
+;palpostbright = 0,0,0
+paladd = 25,25,25
+;palmul = .65,.65,.75
+timegap = 1
+framegap = 1
+trans = add
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = prevstateno = 1006
+trigger1 = Time = 0
+value = 100,0
+
+[State 100, 1]
+type = VelSet
+trigger1 = 1
+y = 6
+
+[State 100, 2]
+type = AssertSpecial
+trigger1 = 1
+flag = NoWalk
+
+[State 100, 3] ;Prevent from turning
+type = AssertSpecial
+trigger1 = 1
+flag = NoAutoTurn
+
+[State 100, 4]
+type = ChangeState
+trigger1 = command != "holddown"
+value = 1006
+
+;---------------------------------------------------------------------------
+; Recovering in Air
+[Statedef 1011]
+type    = A
+movetype= H
+physics = N
+anim = 1011
+velset = 0,0
+sprpriority = 1
+
+[State 0, MakeDust]
+type = MakeDust
+trigger1 = pos y > -40
+pos = 0, -floor(pos y)
+spacing = 3
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1006
+ctrl = 0
