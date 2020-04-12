@@ -4,6 +4,7 @@
 ;Row 1
 bardock, stages/bardock_stage.def, order=2
 raditz, stages/raditz_stage.def, order=1
+frieza, stages/bardock_stage.def, order=3
 ; Ryu/NormalRyu.def,, order=2
 ; Chun-Li/NormalChun-Li.def,, order=2
 ; Eagle,, order=1
